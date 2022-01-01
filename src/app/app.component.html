@@ -18,11 +18,9 @@
             <span>{{timerHours | number:'2.0'}}:{{timerMinutes | number:'2.0'}}:{{timerSeconds | number:'2.0'}}</span>
         </div>
         <div class="game" (click)="reveal()">
-            <span [hidden]="santaView == 'game' || santaView == 'spoiler' "> {{(santaView == 'santa')?
-                names[chosenIndex]?.santa: ""}} </span>
-            <span [hidden]="santaView == 'santa' || santaView == 'spoiler' "> {{(santaView == 'game')? gameText: ""}}
-            </span>
-            <span [hidden]="santaView == 'santa' || santaView == 'game' "> SPOILER </span>
+            <span *ngIf="santaView == 'santa'"> {{names[chosenIndex]?.santa}} </span>
+            <span *ngIf="santaView == 'game'" > {{gameText}} </span>
+            <span *ngIf="santaView == 'spoiler'"> SPOILER </span>
         </div>
     </div>
  

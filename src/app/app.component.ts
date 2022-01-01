@@ -15,130 +15,131 @@ export class AppComponent implements OnInit, AfterViewInit {
     {
       "name": "Corinneabcdefek Roman",
       "santa": "Roman",
-      "game": "missing"
+      "hint": "They are this this and this"
     },
     {
       "name": "Herrera Kramer",
       "santa": "Kramer Herrera",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Jillian Wiley",
       "santa": "Wiley Jillian",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Mccarty George",
       "santa": "George Mccarty",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Herring West",
       "santa": "West Herring",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Camacho Casey",
       "santa": "Casey Camacho",
-      "game": "missing"
+      "hint": "They are this this and this"
     },
     {
       "name": "Susie Wright",
       "santa": "Wright Susie",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Sweet Fisher",
       "santa": "Fisher Sweet",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Imelda Arnold",
       "santa": "Arnold Imelda",
-      "game": "missing"
+      "hint": "They are this this and this"
     },
     {
       "name": "Lena Stein",
       "santa": "Stein Lena",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Suzette Snyder",
       "santa": "Snyder Suzette",
-      "game": "scrambled"
+      "hint": ""
     },
     {
       "name": "Ava Rojas",
       "santa": "Rojas Ava",
-      "game": "scrambled"
+      "hint": "They are this this and this"
     },
     {
       "name": "Moran Decker",
       "santa": "Decker Moran",
-      "game": "scrambled"
+      "hint": ""
     },
     {
       "name": "Mandy Davidson",
       "santa": "Davidson Mandy",
-      "game": "scrambled"
+      "hint": ""
     },
     {
       "name": "Leona Fitzgerald",
       "santa": "Fitzgerald Leona",
-      "game": "scrambled"
+      "hint": ""
     },
     {
       "name": "Tabitha Spencer",
       "santa": "Spencer Tabitha",
-      "game": "scrambled"
+      "hint": "They are this this and this"
     },
     {
       "name": "Lopez Mckee",
       "santa": "Mckee Lopez",
-      "game": "scrambled"
+      "hint": "They are this this and this"
     },
     {
       "name": "Alisa Mcgowan",
       "santa": "Mcgowan Alisa",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Magdalena Molina",
       "santa": "Molina Magdalena",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Kathleen Ballard",
       "santa": "Ballard Kathleen",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Maureen Flynn",
       "santa": "Flynn Maureen",
-      "game": "scrambled"
+      "hint": ""
     },
     {
       "name": "Regina Maxwell",
       "santa": "Maxwell Regina",
-      "game": "scrambled"
+      "hint": ""
     },
     {
       "name": "Ellison Hunter",
       "santa": "Hunter Ellison",
-      "game": "missing"
+      "hint": ""
     },
     {
       "name": "Adrienne Mccarthy",
       "santa": "Mccarthy Adrienne",
-      "game": "missing"
+      "hint": "They are this this and this"
     }
   ]
 
   chosenIndex: number = -1;
 
 
-  sizeArray = ['xx-large', 'xxx-large', 'x-large', 'xx-large', 'xxx-large',];
+  sizeArray = ['xx-large', 'xxx-large', 'x-large'];
   alignArray = ['flex-start', 'center', 'flex-end'];
+  gameArray = ['missing', 'scrambled'];
   santaView = 'spoiler';
   timerHours = 0;
   timerMinutes = 0;
@@ -157,7 +158,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     for (let i = 0; i < this.names.length; i++) {
       let name = this.namesDiv?.nativeElement.children[i];
-      name.setAttribute('style', 'font-size:' + this.sizeArray[Math.floor(Math.random() * 5)] +
+      name.setAttribute('style', 'font-size:' + this.sizeArray[Math.floor(Math.random() * 3)] +
         ';align-self:' + this.alignArray[Math.floor(Math.random() * 3)] +
         ';justify-self:' + this.alignArray[Math.floor(Math.random() * 3)]);
 
@@ -177,13 +178,15 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   getGameText(santaObj: any) {
-
-    if (santaObj?.game == "missing") {
-      return this.getMissing(santaObj?.santa.split(' ')[0].toUpperCase()) + '\xa0\xa0\xa0\xa0' + this.getMissing(santaObj?.santa.split(' ')[1]?.toUpperCase());
-    } else if (santaObj?.game == "scrambled") {
-      return this.getScrambled(santaObj?.santa.split(' ')[0].toUpperCase()) + ' ' + this.getScrambled(santaObj?.santa.split(' ')[1]?.toUpperCase());
+    if(!santaObj?.hint){
+      let game = this.gameArray[Math.floor(Math.random()*2)];
+      if (game == "missing") {
+        return this.getMissing(santaObj?.santa.split(' ')[0].toUpperCase()) + '\xa0\xa0\xa0\xa0' + this.getMissing(santaObj?.santa.split(' ')[1]?.toUpperCase());
+      } else if (game == "scrambled") {
+        return this.getScrambled(santaObj?.santa.split(' ')[0].toUpperCase()) + ' ' + this.getScrambled(santaObj?.santa.split(' ')[1]?.toUpperCase());
+      }
     }
-    return "";
+    return santaObj.hint;
   }
 
   reveal() {
