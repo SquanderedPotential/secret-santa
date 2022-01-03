@@ -87,6 +87,11 @@
     background-color: #aa131b;
     border-color: #aa131b;
 }
+
+.santee{
+    padding: 5px;
+}
+
 #chooseSanteeButton{
     width: 100%;
 }

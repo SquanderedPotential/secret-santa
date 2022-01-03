@@ -7,7 +7,7 @@
 <div class="main">
     <div class="santees">
         <div #namesDiv id="names">
-            <span *ngFor="let name of names; let i = index" [id]=i
+            <span class="santee" *ngFor="let name of names; let i = index" [id]=i
                 [ngClass]='(chosenIndex == i)? "chosen": ""'>{{name.name}}</span>
         </div>
         <button class="btn" id="chooseSanteeButton" (click)='chooseRandom()'>Choose Secret Santee</button>
