@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,135 +8,8 @@ import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewCh
 export class AppComponent implements OnInit, AfterViewInit {
 
   @ViewChild('namesDiv') namesDiv: ElementRef | undefined;
-  constructor(private changeDetRef: ChangeDetectorRef) { }
-
-
-  names = [
-    {
-      "name": "Corinneabcdefek Roman",
-      "santa": "Roman",
-      "hint": "They are this this and this"
-    },
-    {
-      "name": "Herrera Kramer",
-      "santa": "Kramer Herrera",
-      "hint": ""
-    },
-    {
-      "name": "Jillian Wiley",
-      "santa": "Wiley Jillian",
-      "hint": ""
-    },
-    {
-      "name": "Mccarty George",
-      "santa": "George Mccarty",
-      "hint": ""
-    },
-    {
-      "name": "Herring West",
-      "santa": "West Herring",
-      "hint": ""
-    },
-    {
-      "name": "Camacho Casey",
-      "santa": "Casey Camacho",
-      "hint": "They are this this and this"
-    },
-    {
-      "name": "Susie Wright",
-      "santa": "Wright Susie",
-      "hint": ""
-    },
-    {
-      "name": "Sweet Fisher",
-      "santa": "Fisher Sweet",
-      "hint": ""
-    },
-    {
-      "name": "Imelda Arnold",
-      "santa": "Arnold Imelda",
-      "hint": "They are this this and this"
-    },
-    {
-      "name": "Lena Stein",
-      "santa": "Stein Lena",
-      "hint": ""
-    },
-    {
-      "name": "Suzette Snyder",
-      "santa": "Snyder Suzette",
-      "hint": ""
-    },
-    {
-      "name": "Ava Rojas",
-      "santa": "Rojas Ava",
-      "hint": "They are this this and this"
-    },
-    {
-      "name": "Moran Decker",
-      "santa": "Decker Moran",
-      "hint": ""
-    },
-    {
-      "name": "Mandy Davidson",
-      "santa": "Davidson Mandy",
-      "hint": ""
-    },
-    {
-      "name": "Leona Fitzgerald",
-      "santa": "Fitzgerald Leona",
-      "hint": ""
-    },
-    {
-      "name": "Tabitha Spencer",
-      "santa": "Spencer Tabitha",
-      "hint": "They are this this and this"
-    },
-    {
-      "name": "Lopez Mckee",
-      "santa": "Mckee Lopez",
-      "hint": "They are this this and this"
-    },
-    {
-      "name": "Alisa Mcgowan",
-      "santa": "Mcgowan Alisa",
-      "hint": ""
-    },
-    {
-      "name": "Magdalena Molina",
-      "santa": "Molina Magdalena",
-      "hint": ""
-    },
-    {
-      "name": "Kathleen Ballard",
-      "santa": "Ballard Kathleen",
-      "hint": ""
-    },
-    {
-      "name": "Maureen Flynn",
-      "santa": "Flynn Maureen",
-      "hint": ""
-    },
-    {
-      "name": "Regina Maxwell",
-      "santa": "Maxwell Regina",
-      "hint": ""
-    },
-    {
-      "name": "Ellison Hunter",
-      "santa": "Hunter Ellison",
-      "hint": ""
-    },
-    {
-      "name": "Adrienne Mccarthy",
-      "santa": "Mccarthy Adrienne",
-      "hint": "They are this this and this"
-    }
-  ]
-
+  names = [{"name":"Mohan Thirumaliah","santa":"Kiran Abhang"},{"name":"Ankit Choudhary","santa":"Rupinder Singh"},{"name":"Nishant Menaria","santa":"Nikita Khare"},{"name":"Nikita Khare","santa":"Amit Jain"},{"name":"Apurva Joshi","santa":"Rahul Shelke"},{"name":"Shwetali Dhumal","santa":"Tripur Patel"},{"name":"Natwar Singh","santa":"Ishan Sharma"},{"name":"Vanita Saxena","santa":"Pooja Kadam"},{"name":"Tripur Patel","santa":"Shwetali Dhumal"},{"name":"Tejas Pawar","santa":"Sandip Hade"},{"name":"Amruta Kasar","santa":"Sandesh Patil"},{"name":"Tanya Dutt","santa":"Saurav Khandagale"},{"name":"Tirthankar Kundu","santa":"Praveen J R"},{"name":"Sandesh Patil","santa":"Tanya Dutt"},{"name":"Sandip Hade","santa":"Natwar Singh"},{"name":"Nikita Marne","santa":"Amruta Kasar"},{"name":"Manish Choudhary","santa":"Mohan Thirumaliah"},{"name":"Amit Jain","santa":"Vanita Saxena"},{"name":"Praveen J R","santa":"Ankit Choudhary"},{"name":"Pooja Kadam","santa":"Tejas Pawar"},{"name":"Kuldeep Patel","santa":"Ayushi Dantulwar"},{"name":"Rahul Shelke","santa":"Nikita Marne"},{"name":"Ishan Sharma","santa":"Tirthankar Kundu"},{"name":"Rupinder Singh","santa":"Apurva Joshi"},{"name":"Kushal Devra","santa":"Nishant Menaria"},{"name":"Sagar Sahoo","santa":"Kushal Devra"},{"name":"Ayushi Dantulwar","santa":"Kuldeep Patel"},{"name":"Saurav Khandagale","santa":"Manish Choudhary"},{"name":"Sampada Nandanwar","santa":"Mithilesh Sutrave"},{"name":"Mithilesh Sutrave","santa":"Sagar Sahoo"},{"name":"Kiran Abhang","santa":"Pranjal Borhada"},{"name":"Vivek Bapardekar","santa":"Nikash Saxena"},{"name":"Pranjal Borhada","santa":"Vivek Bapardekar"},{"name":"Nikash Saxena","santa":"Sampada Nandanwar"}]
   chosenIndex: number = -1;
-
-
   sizeArray = ['xx-large', 'xxx-large', 'x-large'];
   alignArray = ['flex-start', 'center', 'flex-end'];
   gameArray = ['missing', 'scrambled'];
@@ -145,23 +18,19 @@ export class AppComponent implements OnInit, AfterViewInit {
   timerMinutes = 0;
   timerSeconds = 0;
   gameText = "";
-  timer:any;
+  timer: any;
   timeLeft: number = 30;
 
+  constructor() { }
 
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
-
     for (let i = 0; i < this.names.length; i++) {
       let name = this.namesDiv?.nativeElement.children[i];
       name.setAttribute('style', 'font-size:' + this.sizeArray[Math.floor(Math.random() * 3)] +
         ';align-self:' + this.alignArray[Math.floor(Math.random() * 3)] +
         ';justify-self:' + this.alignArray[Math.floor(Math.random() * 3)]);
-
     }
   }
 
@@ -169,7 +38,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.timerSeconds = 0;
     clearInterval(this.timer);
     this.santaView = 'spoiler';
-    this.names = this.names.filter((obj) => obj.name != this.names[this.chosenIndex]?.name);
+    this.names = this.names.filter((obj: any) => obj.name != this.names[this.chosenIndex]?.name);
     for (let i = 0; i < 20; i++) {
       this.chosenIndex = Math.floor(Math.random() * this.names.length);
       this.playAudio('../assets/sounds/tick.wav');
@@ -178,8 +47,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   getGameText(santaObj: any) {
-    if(!santaObj?.hint){
-      let game = this.gameArray[Math.floor(Math.random()*2)];
+    if (!santaObj?.hint) {
+      let game = this.gameArray[Math.floor(Math.random() * 2)];
       if (game == "missing") {
         return this.getMissing(santaObj?.santa.split(' ')[0].toUpperCase()) + '\xa0\xa0\xa0\xa0' + this.getMissing(santaObj?.santa.split(' ')[1]?.toUpperCase());
       } else if (game == "scrambled") {
@@ -199,7 +68,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
     else if (this.santaView == "game") {
       this.playAudio('../assets/sounds/tada.wav')
-      this.santaView = "santa"; 
+      this.santaView = "santa";
       this.timerSeconds = 0;
       clearInterval(this.timer);
     }
@@ -236,19 +105,17 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   startTimer() {
     this.timer = setInterval(() => {
-      if(this.timerSeconds > 0) {
+      if (this.timerSeconds > 0) {
         this.timerSeconds--;
       } else {
         this.timerSeconds = 0;
         clearInterval(this.timer);
       }
-    },1000)
+    }, 1000)
   }
 
-  playAudio(path: string){
-
+  playAudio(path: string) {
     let audio = new Audio();
-
     audio.src = path;
     audio.load();
     audio.play();
