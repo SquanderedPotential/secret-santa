@@ -20,10 +20,21 @@ export class AppComponent implements OnInit, AfterViewInit {
   gameText = "";
   timer: any;
   timeLeft: number = 30;
+  tick: any;
+  tada: any;
 
-  constructor() { }
+  constructor() { 
 
-  ngOnInit(): void { }
+  }
+
+  ngOnInit(): void { 
+    this.tick = new Audio();
+    this.tick.src = '../assets/sounds/tick.wav';
+    this.tick.load();
+    this.tada = new Audio();
+    this.tada.src = '../assets/sounds/tada.wav';
+    this.tada.load();
+  }
 
   ngAfterViewInit(): void {
     for (let i = 0; i < this.names.length; i++) {
@@ -41,7 +52,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.names = this.names.filter((obj: any) => obj.name != this.names[this.chosenIndex]?.name);
     for (let i = 0; i < 20; i++) {
       this.chosenIndex = Math.floor(Math.random() * this.names.length);
-      this.playAudio('../assets/sounds/tick.wav');
+      //this.playAudio('../assets/sounds/tick.wav');
+      this.tick.play();
       await new Promise(f => setTimeout(f, 100));
     }
   }
@@ -60,14 +72,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   reveal() {
     if (this.santaView == "spoiler") {
-      this.playAudio('../assets/sounds/tick.wav');
+      //this.playAudio('../assets/sounds/tick.wav');
+      this.tick.play();
       this.gameText = this.getGameText(this.names[this.chosenIndex]);
       this.santaView = "game";
       this.timerSeconds = 30;
       this.startTimer();
     }
     else if (this.santaView == "game") {
-      this.playAudio('../assets/sounds/tada.wav')
+      //this.playAudio('../assets/sounds/tada.wav')
+      this.tada.play();
       this.santaView = "santa";
       this.timerSeconds = 0;
       clearInterval(this.timer);
